@@ -19,6 +19,11 @@ public class CategoriaResource {
 	@Autowired
 	private CategoriaService service;
 	
+	@RequestMapping(method=RequestMethod.GET)
+	public List<Categoria> listarTodos(){
+		return service.buscarTodos();
+	}
+	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<?> listar(@PathVariable Integer id) {
 		
@@ -26,9 +31,4 @@ public class CategoriaResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	
-	@RequestMapping(method=RequestMethod.GET)
-	public List<Categoria> listarTodos(){
-		return service.buscarTodos();
-	}
-
 }
