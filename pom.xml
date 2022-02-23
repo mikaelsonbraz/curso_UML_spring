@@ -14,7 +14,7 @@
 	<name>cursomc</name>
 	<description>Modelagem conceitual com UML aplicada num projeto Spring</description>
 	<properties>
-		<java.version>17.0.2</java.version>
+		<java.version>1.8_321</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
