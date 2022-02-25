@@ -9,25 +9,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mikaelsonbraz.cursomc.domain.Cliente;
-import com.mikaelsonbraz.cursomc.services.ClienteService;
+import com.mikaelsonbraz.cursomc.domain.Pedido;
+import com.mikaelsonbraz.cursomc.services.PedidoService;
 
 @RestController
-@RequestMapping("/clientes")
-public class ClienteResource {
-
+@RequestMapping("/pedidos")
+public class PedidoResource {
+	
 	@Autowired
-	private ClienteService clienteService;
+	private PedidoService pedidoService;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public List<Cliente> listarTodos(){
-		return clienteService.buscarTodos();
+	public List<Pedido> listarTodos(){
+		return pedidoService.buscarTodos();
 	}
 	
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> listar(@PathVariable Integer id) {
-		
-		Cliente obj = clienteService.buscar(id);
+	public ResponseEntity<?> listar(@PathVariable Integer id){
+		Pedido obj = pedidoService.buscar(id);
 		return ResponseEntity.ok().body(obj);
 	}
+
 }
